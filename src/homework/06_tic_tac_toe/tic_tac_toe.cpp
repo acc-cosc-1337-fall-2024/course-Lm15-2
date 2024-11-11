@@ -5,22 +5,12 @@
 
 bool TicTacToe::game_over()
 {
-    if (check_columm_win() == true)
+    set_winner();
+    if(winner == "O" || winner == "X")
     {
-        return check_columm_win();
+        return true;
     }
-    else if (check_row_win() == true)
-    {
-        return check_row_win();
-    }
-
-    else if (check_diagonal_win() == true)
-    {
-        return check_diagonal_win();
-    }
-
-    else
-        return check_board_full();
+    return check_board_full();
 }
 
 void TicTacToe::start_game(string first_player)
@@ -85,7 +75,7 @@ bool TicTacToe::check_columm_win()
 {
     for (int i = 0; i < 3; i++)
     {
-        if (pegs[i] != " " && pegs[i] == pegs[2] && pegs[i] == pegs[5])
+        if (pegs[i] != " " && pegs[i] == pegs[i+3] && pegs[i] == pegs[i+6])
         {
             winner = pegs[i];
             return true;
@@ -114,7 +104,7 @@ bool TicTacToe::check_diagonal_win()
         winner = pegs[0];
         return true;
     }
-    if (pegs[2] != " " && pegs[2] == pegs[4] && pegs[0] == pegs[6])
+    if (pegs[2] != " " && pegs[2] == pegs[4] && pegs[2] == pegs[6])
     {
         winner = pegs[2];
         return true;
