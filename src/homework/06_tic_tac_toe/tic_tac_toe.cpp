@@ -6,7 +6,7 @@
 bool TicTacToe::game_over()
 {
     set_winner();
-    if(winner == "O" || winner == "X")
+    if (winner == "O" || winner == "X")
     {
         return true;
     }
@@ -27,11 +27,22 @@ void TicTacToe::mark_board(int position)
 
 void TicTacToe::display_board() const
 {
-    for (long unsigned int i = 0; i < pegs.size(); i += 3)
+    if(pegs.size() == 9)
     {
-        cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2] << "\n";
+        for (long unsigned int i = 0; i < pegs.size(); i += 3)
+        {
+            cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2] << "\n";
+        }
     }
-}
+        else
+        {
+            for (long unsigned int i = 0; i < pegs.size(); i += 4)
+            {
+                cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2] << "|" << pegs[i + 3] << "\n";
+            }
+        }
+    }
+
 string TicTacToe::get_winner()
 {
     set_winner();
@@ -71,50 +82,9 @@ bool TicTacToe::check_board_full()
     return true;
 }
 
-bool TicTacToe::check_columm_win()
-{
-    for (int i = 0; i < 3; i++)
-    {
-        if (pegs[i] != " " && pegs[i] == pegs[i+3] && pegs[i] == pegs[i+6])
-        {
-            winner = pegs[i];
-            return true;
-        }
-    }
-    return false;
-}
-
-bool TicTacToe::check_row_win()
-{
-    for (int i = 0; i < 3; i++)
-    {
-        if (pegs[i] != " " && pegs[i * 3] == pegs[i * 3 + 1] && pegs[i * 3] == pegs[i * 3 + 2])
-        {
-            winner = pegs[i * 3];
-            return true;
-        }
-    }
-    return false;
-}
-
-bool TicTacToe::check_diagonal_win()
-{
-    if (pegs[0] != " " && pegs[0] == pegs[4] && pegs[0] == pegs[8])
-    {
-        winner = pegs[0];
-        return true;
-    }
-    if (pegs[2] != " " && pegs[2] == pegs[4] && pegs[2] == pegs[6])
-    {
-        winner = pegs[2];
-        return true;
-    }
-    return false;
-}
-
 void TicTacToe::set_winner()
 {
-    if (check_columm_win() != true && check_row_win() != true && check_diagonal_win() != true)
+    if (check_column_win() != true && check_row_win() != true && check_diagonal_win() != true)
     {
         winner = "C";
     }
