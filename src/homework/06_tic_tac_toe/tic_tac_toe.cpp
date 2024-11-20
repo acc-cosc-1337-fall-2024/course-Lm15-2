@@ -1,7 +1,6 @@
 // cpp
 #include "tic_tac_toe.h"
 
-// public
 
 bool TicTacToe::game_over()
 {
@@ -49,7 +48,6 @@ string TicTacToe::get_winner()
     return winner;
 }
 
-// private
 
 void TicTacToe::clear_board()
 {
@@ -88,4 +86,20 @@ void TicTacToe::set_winner()
     {
         winner = "C";
     }
+}
+
+bool TicTacToe::check_row_win()
+{
+ 
+    return false;
+}
+
+bool TicTacToe::check_column_win()
+{
+    return false;
+}
+
+bool TicTacToe::check_diagonal_win()
+{
+    return false;
 }

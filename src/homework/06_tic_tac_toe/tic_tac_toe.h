@@ -19,6 +19,7 @@ public:
     string get_player() const {return player; }
     void display_board() const;
     string get_winner();
+    string winner;
     
 
 protected: 
@@ -29,7 +30,6 @@ protected:
 
 private:
     string player;
-    string winner;
     void clear_board();
     void set_next_player();
     void set_winner();

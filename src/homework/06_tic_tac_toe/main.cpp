@@ -8,7 +8,7 @@ int main()
 	TicTacToeManager gameManager;
 	int xWins = 0;
 	int oWins = 0;
-	int ties = 0;
+	int ties = 0;	
 
 	string first_player;
 	char choice = 'y';

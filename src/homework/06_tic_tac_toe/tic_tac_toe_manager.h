@@ -5,12 +5,10 @@
 #include <memory>
 #include "tic_tac_toe.h"
 
-using std::string; using std::cout; using std::cin; using std::vector; using std::unique_ptr; using std::make_unique;
-
 #ifndef TIC_TAC_TOE_MANAGER_H
 #define TIC_TAC_TOE_MANAGER_H
 
-class TicTacToeManager : public TicTacToe{
+class TicTacToeManager{
 
 
     public:
